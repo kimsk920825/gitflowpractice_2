@@ -17,5 +17,22 @@ def generateLotto():
         lotto[3] = lotto[0]
         lotto[4] = lotto[0]
         lotto[5] = lotto[0]
-    pass
+        # 중복된 수가 발생되지 않도록 채번
+    while (lotto[0] == lotto[1]):
+        lotto[1] = random.randrange(1, 46, 1)
+    while (lotto[0] == lotto[2] or lotto[1] == lotto[2]):
+        lotto[2] = random.randrange(1, 46, 1)
+    while (lotto[0] == lotto[3] or lotto[1] == lotto[3] or lotto[2] == lotto[3]):
+        lotto[3] = random.randrange(1, 46, 1)
+    while (lotto[0] == lotto[4] or lotto[1] == lotto[4] or lotto[2] == lotto[4] or lotto[3] == lotto[4]):
+        lotto[4] = random.randrange(1, 46, 1)
+    while (lotto[0] == lotto[5] or lotto[1] == lotto[5] or lotto[2] == lotto[5] or lotto[3] == lotto[5] or lotto[4] == lotto[5]):
+        lotto[5] = random.randrange(1, 46, 1)
 
+    # 결과를 정렬
+    lotto.sort()
+
+    # 결과 출력
+    print(lotto)
+
+generateLotto()
